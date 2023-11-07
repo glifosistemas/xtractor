@@ -1,0 +1,11 @@
+.imagen-icono {
+	max-height: 5.5rem;
+	max-width: 5.5rem;
+	width: auto;
+	height: auto;
+}
+
+
+.color-letra-xtractor {
+	color: var(--primary-color);
+}

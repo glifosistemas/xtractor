@@ -1,0 +1,440 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+
+/* Declaración de variables de alcance root -> Raíz */
+:root {
+	--primary-color: #047aed;
+	--secondary-color: #1c3fa8;
+	--dark-color: #002240;
+	--light-color: #f4f4f4;
+	--success-color: #5cbB5c;
+	--error-color: #d9534f;
+}
+
+* {
+	box-sizing: border-box;/*Permite dar margin paddign*/
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	font-family: 'Lato', sans-serif;
+	color: #333;
+	line-height: 1.6;
+}
+
+ul {
+	list-style-type: none;
+}
+
+a {
+	text-decoration: none;
+	color: #333;
+}
+
+h1, h2 {
+	font-weight: 300;
+	line-height: 1.2;
+	margin: 10px 0;	
+}
+
+p {
+	margin: 10px 0;
+}
+
+img {
+	width: 100%;
+}
+
+code,
+pre {
+	background: #333;
+	color: #fff;
+	padding: 10px;
+}
+
+
+/* Navbar */
+.navbar {
+	background-color: var(--primary-color);
+	color: #fff;
+	height: 70px;
+}
+
+.navbar ul {
+	display: flex;
+}
+
+.navbar a {
+	color: #fff;
+	padding: 10px;
+	margin: 0 5px;
+}
+
+.navbar a:hover {
+	border-bottom: 2px #fff solid;
+}
+
+/* Si .felx se encuentra dentro de navbar */
+.navbar .flex {
+	justify-content: space-between;
+}
+/* Showcase */
+.showcase {
+	height: 400px;
+	background-color: var(--primary-color) ;
+	color: #fff;
+	position: relative;
+}
+
+.showcase h1 {
+	font-size: 40px;
+}
+
+.showcase p {
+	margin: 20px 0;
+}
+
+.showcase .grid {
+	/* Quita el scroll bar */
+	overflow: visible;
+	grid-template-columns: 55% 45%;
+	gap: 30px;
+}
+
+.showcase-text {
+		/* Animaciones */
+		animation: slideInFromLeft 1s ease-in;
+		margin-left: 10px;
+}
+
+.showcase-form {
+	position: relative;
+	top: 60px;
+	height: 350px;
+	width: 400px;
+	padding: 40px;
+	/* Especifica el oreden en la pila de elementos, si se encuentra alfrente de otros o atras de otros */
+	z-index: 100;
+	/* Centra el formulario de manera horizontal */
+	justify-self: flex-end;
+	/* aminación de formulario */
+	animation: slideInFromRight 1s ease-in;
+	margin-right: 30px;
+}
+
+.showcase-form .form-control {
+	margin: 30px 0;
+}
+
+.showcase-form input[type='text'],
+.showcase-form input[type='email'] {
+	border: 0;
+	border-bottom: 1px solid #b4becb;
+	width: 100%;
+	padding: 3px;
+	font-size: 16px;
+}
+
+.showcase-form input:focus {
+	outline: none;
+}
+/*Inserta texto antes y después del elemento en este caso de un secction*/
+/*Esto es para hacer la linea inclinada*/
+.showcase::before,
+.showcase::after {
+	content: '';
+ position: absolute;
+	height:100px;
+	bottom: -70px;
+	right: 0;
+	left: 0;
+	background: #fff;
+	-webkit-transform: skewY(-3deg);
+	-moz-transform: skewY(-3deg);
+	-o-transform: skewY(-3deg);
+	-ms-transform: skewY(-3deg);
+	transform: skewY(-3deg);
+}
+/* Stats */
+.stats {
+	padding-top:	100px;
+	/* animación para que aparezca desde abajo*/
+	animation: slideInFromBottom 1s ease-in;
+}
+
+.stats-heading {
+	max-width: 500px;
+	margin: auto;
+}
+
+.stats .grid h3 {
+	font-size: 35px;
+}
+
+.stats .grid p {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+/* Cli */
+.cli .grid {
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(2, 1fr);
+}
+
+.cli .grid > *:first-child {
+	/* La primera columna se expanda 2 columnas */
+	grid-column: 1 / span 2;
+	/* La primera fila se expanda 2 filas */
+	grid-row: 1 / span 2;
+}
+
+
+/* Cloud */
+
+.cloud .grid {
+	grid-template-columns: 4fr 3fr;
+}
+
+
+/* Languajes */
+
+
+.languages .flex {
+	/* Para que se haga adapteble */
+	flex-wrap: wrap;
+}
+
+.languages .card {
+	text-align:center;
+	margin: 18px 10px 40px;
+	/* Para que al hacer hover sobre las tarjetas de una pequeña animación */
+	-webkit-transition: transform 0.2s ease-in;
+	-moz-transition: transform 0.2s ease-in;
+	-o-transition: transform 0.2s ease-in;
+	-ms-transition: transform 0.2s ease-in;
+	transition: transform 0.2s ease-in;
+}
+
+.languages .card h4 {
+	font-size: 20px;
+	margin-bottom: 10px;
+}
+
+.languages .card:hover {
+	-webkit-transform:translateY(-15px);
+	-moz-transform:translateY(-15px);
+	-o-transform:translateY(-15px);
+	-ms-transform:translateY(-15px);
+	transform: translateY(-15px);
+}
+
+/* Features */
+.features-head img,
+.docs-head img {
+	width: 200px;
+	justify-self: flex-end;
+}
+
+.features-sub-head img {
+	width: 300px;
+	justify-self: flex-start;
+}
+
+.features-main .card > i{
+	margin-right: 20px;
+}
+
+.features-main .grid {
+	padding: 30px;
+}
+
+/*El primer elemento, se expande 3 columnas*/
+.features-main .grid > *:first-child {
+	grid-column: 1 / span 3;
+}
+
+/*El segundo elemento, se expande 2 columnas*/
+.features-main .grid > *:nth-child(2) {
+	grid-column: 1 / span 2;
+}
+
+/* Docs */
+.docs-main h3 {
+	margin: 20px 0;
+}
+
+.docs-main .grid {
+	grid-template-columns: 1fr 2fr;
+	align-items: flex-start;
+}
+
+.docs-main nav li {
+	font-size: 17px;
+	padding-bottom: 5px;
+	margin-bottom: 5px;
+	border-bottom: 1px #ccc solid;
+}
+
+.docs-main a:hover {
+	font-weight: bold;
+}
+
+/* Footer */
+ .footer .social a {
+		margin: 0 10px;
+	}
+
+/* Animaciones */
+	/* Para que aparezac desde la izquierda */
+@keyframes slideInFromLeft {
+	0% {
+		-webkit-transform:translateX(-100%);
+		-moz-transform:translateX(-100%);
+		/* -o-transform:translateX(-100%); */
+		/* -ms-transform:translateX(-100%); */
+		transform:translateX(-100%);
+	}
+
+	100% {
+		-webkit-transform:translateX(0);
+		-moz-transform:translateX(0);
+		/* -o-transform:translateX(0); */
+		/* -ms-transform:translateX(0); */
+		transform:translateX(0);
+	}
+}
+
+	/* Para que aparezac desde la derecha */
+@keyframes slideInFromRight {
+	0% {
+		-webkit-transform:translateX(100%);
+		-moz-transform:translateX(100%);
+		/* -o-transform:translateX(100%); */
+		/* -ms-transform:translateX(100%); */
+		transform:translateX(100%);
+	}
+
+	100% {
+		-webkit-transform:translateX(0);
+		-moz-transform:translateX(0);
+		/* -o-transform:translateX(0); */
+		/* -ms-transform:translateX(0; */
+		transform:translateX(0);
+	}
+}
+
+	/* Para que aparezac desde arriba */
+@keyframes slideInFromTop {
+	0% {
+		-webkit-transform:translateY(-100%);
+		-moz-transform:translateY(-100%);
+		/* -o-transform:translateY(-100%); */
+		/* -ms-transform:translateY(-100%); */
+		transform:translateY(-100%);
+	}
+
+	100% {
+		-webkit-transform:translateX(0);
+		-moz-transform:translateX(0);
+		/* -o-transform:translateX(0); */
+		/* -ms-transform:translateX(0); */
+		transform:translateX(0);
+	}
+}
+
+	/* Para que aparezac desde abajo*/
+@keyframes slideInFromBottom {
+	0% {
+		-webkit-transform:translateY(100%);
+		-moz-transform:translateY(100%);
+		/* -o-transform:translateY(100%); */
+		/* -ms-transform:translateY(100%); */
+		transform:translateY(100%);
+	}
+
+	100% {
+		-webkit-transform:translateY(0);
+		-moz-transform:translateY(0);
+		/* -o-transform:translateX(0); */
+		/* -ms-transform:translateX(0); */
+		transform:translateY(0);
+	}
+}
+
+
+	/* Tablets and under */
+	@media(max-width: 768px){
+		/* Esto es para probar que funciona, hace de desaparecer elcontenido es para ver que medida del navegador es */
+		/* body { */
+		/* 	display:none; */
+		/* } */
+		
+		.grid,
+		.showcase .grid,
+		.stats .grid,
+		.cli .grid,
+		.cloud .grid,
+		.features-main .grid, 
+		.docs-main .grid {
+			grid-template-columns: 1fr;
+			grid-template-rows: 1fr;
+		}
+
+		.showcase {
+			/* El elemento se ajusta a la altura automáticamentepara permitir a su contenido ser visulizado correctamente */
+			height: auto;
+		}
+
+		.showcase-text {
+			text-align:center;
+			margin-top: 40px;
+			animation: slideInFromTop 1s ease-in;
+		}
+
+		.showcase-form {
+			justify-self: center;
+			margin: auto;
+			animation: slideInFromBottom 1s ease-in;
+		}
+
+		.cli .grid > *:first-child {
+			/* La primera columna se expanda 2 columnas */
+			grid-column: 1;
+			/* La primera fila se expanda 2 filas */
+			grid-row: 1;
+		}
+		.features-head,
+		.features-sub-head,
+		.docs-head {
+			text-align: center;
+		}
+
+		.features-head img,
+		.features-sub-head img,
+		.docs-head img {
+			justify-self: center;
+		}
+
+		.features-main .grid > *:first-child,
+		.features-main .grid > *:nth-child(2) {
+			grid-column: 1;
+		}
+	}
+
+	/* Mobile */
+
+@media(max-width: 500px){
+	.navbar {
+		height: 110px;
+	}
+
+	.navbar .flex {
+		flex-direction: column;
+	}
+
+	.navbar ul {
+		padding: 10px;
+		background-color: rgba(0, 0, 0, 0.1);
+	}
+}
